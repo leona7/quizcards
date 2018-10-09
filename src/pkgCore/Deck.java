@@ -22,8 +22,7 @@ public class Deck {
 
 	public Card Draw() throws DeckException {
 
-		if (cardsInDeck.size() == 0)
-		{
+		if (cardsInDeck.size() == 0) {
 			throw new DeckException(this);
 		}
 		return cardsInDeck.remove(0);
@@ -44,4 +43,22 @@ public class Deck {
 	{
 		return cardsInDeck.size();
 	}
+
+public int getRemaining(Object eNum) {
+	int Count = 0;
+	if (eNum instanceof eSuit) {
+			
+	for (Card c: this.cardsInDeck) {
+		if (c.geteSuit() == eNum) {
+			Count++;}
+	}
+	} 
+	if (eNum instanceof eRank) {
+	for (Card c: this.cardsInDeck) {
+		if (c.geteRank() == eNum) {
+			Count++;}
+	}
+	}
+	return Count;
+}
 }
